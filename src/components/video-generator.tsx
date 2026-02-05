@@ -62,18 +62,31 @@ export function VideoGenerator({ images, fps }: VideoGeneratorProps) {
 
       setVideoBuffer(buffer);
       setProgress({ current: images.length, total: images.length, status: "complete" });
-    } catch (error) {
-      if ((error as Error).message === "Encoding cancelled") {
-        setProgress({ current: 0, total: 0, status: "idle" });
-      } else {
-        setProgress({
-          current: 0,
-          total: 0,
-          status: "error",
-          error: tError("encodingFailed"),
-        });
+      } catch (error) {
+        const message = (error as Error).message;
+        if (message === "Encoding cancelled") {
+          setProgress({ current: 0, total: 0, status: "idle" });
+        } else {
+          // 具体的なエラーメッセージを表示
+          let errorMessage = tError("encodingFailed");
+          if (message.includes("memory") || message.includes("alloc")) {
+            errorMessage = tError("outOfMemory");
+          } else if (message.includes("Failed to load image")) {
+            errorMessage = message;
+          } else if (message.includes("Encoding frame")) {
+            errorMessage = message;
+          } else if (message.includes("Encoder initialization")) {
+            errorMessage = tError("encoderInit");
+          }
+          setProgress({
+            current: 0,
+            total: 0,
+            status: "error",
+            error: errorMessage,
+          });
+          console.error("Encoding error:", error);
+        }
       }
-    }
   };
 
   const handleCancel = () => {

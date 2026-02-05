@@ -30,7 +30,9 @@
   "error": {
     "noImages": "Please upload at least one image",
     "unsupported": "Your browser does not support WebCodecs API. Please use Chrome 94+, Firefox 111+, or Safari 16.4+.",
-    "encodingFailed": "Video encoding failed. Please try again."
+    "encodingFailed": "Video encoding failed. Please try again.",
+    "outOfMemory": "Out of memory. Try reducing the number of images or using smaller resolution images.",
+    "encoderInit": "Encoder initialization failed. Your browser may not support H.264 encoding."
   },
   "theme": {
     "toggle": "Toggle theme",

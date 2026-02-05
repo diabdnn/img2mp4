@@ -462,3 +462,646 @@ https://nextjs.org/docs/messages/module-not-found
 2026-02-05T19:05:11.862Z [console][log] [Fast Refresh] rebuilding
 2026-02-05T19:05:11.865Z [console][log] [Fast Refresh] done in 243ms
 2026-02-05T19:05:41.401Z [console][log] [HMR] connected
+2026-02-05T19:03:21.777Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:03:35.617Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:03:35.617Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:03:39.286Z [console][error] Uncaught Error: ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+2026-02-05T19:03:39.291Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:03:39.291Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:03:39.325Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:03:39.325Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:03:49.050Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:03:52.665Z [console][error] Uncaught Error: ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+2026-02-05T19:03:52.668Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:03:52.702Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:04:41.026Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url="/" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+                        <SegmentViewNode type="page" pagePath="/orchids-p...">
+                          <SegmentTrieNode>
+                          <Home>
+                            <MainApp data-orchids-id="src/app/pa..." data-orchids-name="MainApp" locale="ja">
+                              <div data-orchids-id="src/compon..." data-orchids-name="div" className="min-h-scre...">
+                                ...
+                                  <div data-orchids-id="src/compon..." data-orchids-name="div" className="flex items...">
+                                    ...
+                                      <Primitive.button.Slot type="button" id="radix-_R_3..." aria-haspopup="menu" ...>
+                                        <Primitive.button.SlotClone type="button" id="radix-_R_3..." aria-haspopup="menu" ...>
+                                          <Button data-orchids-id="src/compon..." data-orchids-name="Button" ...>
+                                            <button
+                                              data-orchids-id="src/components/locale-switcher.tsx:28:8"
+                                              data-orchids-name="Button"
+                                              data-slot="dropdown-menu-trigger"
+                                              className={"inline-flex items-center justify-center gap-2 whitespace-no..."}
+                                              disabled={false}
+                                              type="button"
+                                              id="radix-_R_36atplb_"
+                                              aria-haspopup="menu"
+                                              aria-expanded={false}
+                                              aria-controls={undefined}
+                                              data-state="closed"
+                                              data-disabled={undefined}
+                                              onPointerDown={function handleEvent}
+                                              onKeyDown={function handleEvent}
+                                              ref={function}
+-                                             data-orchid-ref="ref-gani064asn"
+                                            >
+                                              <Languages data-orchids-id="src/compon..." data-orchids-name="Languages" ...>
+                                                <svg
+                                                  ref={null}
+                                             ... [truncated]
+2026-02-05T19:05:01.815Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:01.815Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:05.331Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:05.331Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:05.944Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:05.944Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:05.980Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:05.980Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:06.175Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:06.175Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:06.262Z [console][error] Uncaught Error: ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+2026-02-05T19:05:06.270Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:06.270Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:06.314Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:3:1
+Module not found: Can't resolve '../../messages/en.json'
+  1 | import { getRequestConfig } from "next-intl/server";
+  2 | import { cookies, headers } from "next/headers";
+> 3 | import en from "../../messages/en.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import ja from "../../messages/ja.json";
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:05:06.314Z [console][error] ./orchids-projects/image-sequence/src/i18n/request.ts:4:1
+Module not found: Can't resolve '../../messages/ja.json'
+  2 | import { cookies, headers } from "next/headers";
+  3 | import en from "../../messages/en.json";
+> 4 | import ja from "../../messages/ja.json";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export const locales = ["en", "ja"] as const;
+  7 | export type Locale = (typeof locales)[number];
+
+Import trace:
+  Server Component:
+    ./orchids-projects/image-sequence/src/i18n/request.ts
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+    ./orchids-projects/image-sequence/node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js
+    ./orchids-projects/image-sequence/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-05T19:08:24.414Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+                  <SegmentViewNode type="page" pagePath="/orchids-p...">
+                    <SegmentTrieNode>
+                    <Home>
+                      <MainApp data-orchids-id="src/app/pa..." data-orchids-name="MainApp" locale="ja">
+                        <div data-orchids-id="src/compon..." data-orchids-name="div" className="min-h-scre...">
+                          <header>
+                          <main data-orchids-id="src/compon..." data-orchids-name="main" className="container ...">
+                            <ImageUploader>
+                            <FpsSelector>
+                            <VideoGenerator data-orchids-id="src/compon..." data-orchids-name="VideoGener..." ...>
+                              <Card data-orchids-id="src/compon..." data-orchids-name="Card">
+                                <div
+                                  data-orchids-id="src/components/video-generator.tsx:105:4"
+                                  data-orchids-name="Card"
+                                  data-slot="card"
+                                  className="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 s..."
+-                                 data-orchid-ref="ref-ximqnqm4kw"
+                                >
+                                  <CardHeader data-orchids-id="src/compon..." data-orchids-name="CardHeader">
+                                    <div
+                                      data-orchids-id="src/components/video-generator.tsx:106:6"
+                                      data-orchids-name="CardHeader"
+                                      data-slot="card-header"
+                                      className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items..."
+-                                     data-orchid-ref="ref-vqscu9yl6u"
+                                    >
+                                      <CardTitle data-orchids-id="src/compon..." data-orchids-name="CardTitle" ...>
+                                        <div
+                                          data-orchids-id="src/components/video-generator.tsx:107:8"
+                                          data-orchids-name="CardTitle"
+                                          data-slot="card-title"
+                                          className="font-semibold text-lg"
+-                                         data-orchid-ref="ref-1pgcub7g8p"
+                                        >
++                                         動画を生成
+                                  <CardContent data-orchids-id="src/compon..." data-orchids-name="CardContent" ...>
+                                    <div
+                                      data-orchids-id="src/components/video-generator.tsx:1... [truncated]
+2026-02-05T19:08:24.414Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+                  <SegmentViewNode type="page" pagePath="/orchids-p...">
+                    <SegmentTrieNode>
+                    <Home>
+                      <MainApp data-orchids-id="src/app/pa..." data-orchids-name="MainApp" locale="ja">
+                        <div data-orchids-id="src/compon..." data-orchids-name="div" className="min-h-scre...">
+                          <header>
+                          <main data-orchids-id="src/compon..." data-orchids-name="main" className="container ...">
+                            <ImageUploader>
+                            <FpsSelector>
+                            <VideoGenerator data-orchids-id="src/compon..." data-orchids-name="VideoGener..." ...>
+                              <Card data-orchids-id="src/...
