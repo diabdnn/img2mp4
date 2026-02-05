@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 import path from "node:path";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin();
 
 // Loader path from orchids-visual-edits - use direct resolve to get the actual file
 const loaderPath = require.resolve('orchids-visual-edits/loader.js');
@@ -33,4 +36,4 @@ const nextConfig: NextConfig = {
   }
 } as NextConfig;
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

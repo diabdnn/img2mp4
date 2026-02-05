@@ -1,0 +1,46 @@
+{
+  "title": "Image to MP4 Converter",
+  "description": "Convert image sequence to MP4 video",
+  "upload": {
+    "title": "Upload Images",
+    "dropzone": "Drag & drop images here, or click to select",
+    "supported": "Supported formats: PNG, JPG, WebP, GIF",
+    "count": "{count} images selected",
+    "clear": "Clear All",
+    "sortByName": "Sort by Name"
+  },
+  "fps": {
+    "title": "FPS Settings",
+    "label": "Frame Rate",
+    "unit": "fps"
+  },
+  "generate": {
+    "button": "Generate Video",
+    "progress": "Generating...",
+    "download": "Download MP4",
+    "cancel": "Cancel",
+    "processing": "Processing frame {current} of {total}",
+    "complete": "Complete!"
+  },
+  "preview": {
+    "title": "Preview",
+    "remove": "Remove",
+    "empty": "No images uploaded"
+  },
+  "error": {
+    "noImages": "Please upload at least one image",
+    "unsupported": "Your browser does not support WebCodecs API. Please use Chrome 94+, Firefox 111+, or Safari 16.4+.",
+    "encodingFailed": "Video encoding failed. Please try again."
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "toggle": "Toggle language",
+    "en": "English",
+    "ja": "Japanese"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "title": "Image to MP4 Converter",
+  "description": "画像連番からMP4動画を生成",
+  "upload": {
+    "title": "画像をアップロード",
+    "dropzone": "ここに画像をドラッグ＆ドロップ、またはクリックして選択",
+    "supported": "対応形式: PNG, JPG, WebP, GIF",
+    "count": "{count}枚の画像を選択中",
+    "clear": "すべてクリア",
+    "sortByName": "名前順にソート"
+  },
+  "fps": {
+    "title": "FPS設定",
+    "label": "フレームレート",
+    "unit": "fps"
+  },
+  "generate": {
+    "button": "動画を生成",
+    "progress": "生成中...",
+    "download": "MP4をダウンロード",
+    "cancel": "キャンセル",
+    "processing": "フレーム {current}/{total} を処理中",
+    "complete": "完了！"
+  },
+  "preview": {
+    "title": "プレビュー",
+    "remove": "削除",
+    "empty": "画像がアップロードされていません"
+  },
+  "error": {
+    "noImages": "少なくとも1枚の画像をアップロードしてください",
+    "unsupported": "お使いのブラウザはWebCodecs APIに対応していません。Chrome 94以降、Firefox 111以降、またはSafari 16.4以降をご使用ください。",
+    "encodingFailed": "動画のエンコードに失敗しました。もう一度お試しください。"
+  },
+  "theme": {
+    "toggle": "テーマを切り替え",
+    "light": "ライト",
+    "dark": "ダーク",
+    "system": "システム"
+  },
+  "language": {
+    "toggle": "言語を切り替え",
+    "en": "English",
+    "ja": "日本語"
+  }
+}
