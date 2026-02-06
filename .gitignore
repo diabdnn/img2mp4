@@ -17,6 +17,12 @@
 /.next/
 /out/
 
+# opennext
+/.open-next/
+
+# local env
+.dev.vars
+
 # production
 /build
 
