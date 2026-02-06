@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useRef } from "react";
-import { Upload, X } from "lucide-react";
+import { Upload } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -52,14 +52,6 @@ export function ImageUploader({ images, onImagesChange }: ImageUploaderProps) {
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
-  };
-
-  const removeImage = (id: string) => {
-    const image = images.find((img) => img.id === id);
-    if (image) {
-      URL.revokeObjectURL(image.preview);
-    }
-    onImagesChange(images.filter((img) => img.id !== id));
   };
 
   const clearAll = () => {
@@ -114,31 +106,6 @@ export function ImageUploader({ images, onImagesChange }: ImageUploaderProps) {
             <p className="text-sm text-muted-foreground">
               {t("count", { count: images.length })}
             </p>
-            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 max-h-64 overflow-y-auto p-1">
-              {images.map((image, index) => (
-                <div key={image.id} className="relative group aspect-square">
-                  <img
-                    src={image.preview}
-                    alt={image.name}
-                    className="w-full h-full object-cover rounded-md"
-                  />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-md flex items-center justify-center">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        removeImage(image.id);
-                      }}
-                      className="p-1 bg-destructive rounded-full"
-                    >
-                      <X className="h-3 w-3 text-white" />
-                    </button>
-                  </div>
-                  <span className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-[10px] px-1 py-0.5 truncate rounded-b-md">
-                    {index + 1}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
         )}
       </CardContent>

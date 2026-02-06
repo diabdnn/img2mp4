@@ -1,6 +1,14 @@
 {
   "title": "Image to MP4 Converter",
   "description": "画像連番からMP4動画を生成",
+  "audio": {
+    "title": "音声をアップロード",
+    "dropzone": "ここに音声ファイルをドラッグ＆ドロップ、またはクリックして選択",
+    "supported": "対応形式: MP3, WAV, M4A, OGG",
+    "selected": "選択中の音声",
+    "remove": "削除",
+    "duration": "長さ"
+  },
   "upload": {
     "title": "画像をアップロード",
     "dropzone": "ここに画像をドラッグ＆ドロップ、またはクリックして選択",
@@ -14,13 +22,44 @@
     "label": "フレームレート",
     "unit": "fps"
   },
+  "resolution": {
+    "title": "解像度設定",
+    "label": "出力解像度"
+  },
+  "quality": {
+    "title": "品質設定",
+    "label": "エンコード品質",
+    "low": "低",
+    "medium": "中",
+    "high": "高",
+    "ultra": "最高"
+  },
+  "aspect": {
+    "title": "収め方",
+    "label": "アスペクト比の扱い",
+    "match": "入力の縦横比に合わせる（黒帯なし）",
+    "contain": "全体を収める（余白あり）",
+    "cover": "画面を埋める（はみ出しはトリミング）",
+    "stretch": "引き伸ばす（歪ませる）"
+  },
+  "sync": {
+    "title": "音声と映像の長さ",
+    "modeLabel": "どちらに合わせる",
+    "audio": "音声に合わせる（映像を伸縮）",
+    "video": "映像に合わせる（音声をカット）",
+    "extendLabel": "音声が長いときの映像の伸ばし方",
+    "extendLast": "最後のフレームを保持",
+    "extendBlack": "黒で埋める"
+  },
   "generate": {
     "button": "動画を生成",
     "progress": "生成中...",
     "download": "MP4をダウンロード",
     "cancel": "キャンセル",
     "processing": "フレーム {current}/{total} を処理中",
-    "complete": "完了！"
+    "remaining": "残り {time}",
+    "complete": "完了！",
+    "preview": "プレビュー"
   },
   "preview": {
     "title": "プレビュー",

@@ -3,6 +3,12 @@ import {
   Mp4OutputFormat,
   BufferTarget,
   CanvasSource,
+  AudioBufferSource,
+  QUALITY_VERY_LOW,
+  QUALITY_LOW,
+  QUALITY_MEDIUM,
+  QUALITY_HIGH,
+  QUALITY_VERY_HIGH,
 } from "mediabunny";
 
 export type ProgressCallback = (current: number, total: number) => void;
@@ -40,9 +46,59 @@ function calculateScaledDimensions(
   };
 }
 
+// 解像度プリセット
+const resolutionPresets: Record<string, { width: number; height: number }> = {
+  "360p": { width: 640, height: 360 },
+  "480p": { width: 854, height: 480 },
+  "720p": { width: 1280, height: 720 },
+  "1080p": { width: 1920, height: 1080 },
+  "1440p": { width: 2560, height: 1440 },
+  "4k": { width: 3840, height: 2160 },
+  "8k": { width: 7680, height: 4320 },
+};
+
+async function decodeAudioFile(file: File): Promise<AudioBuffer> {
+  const audioArrayBuffer = await file.arrayBuffer();
+  const audioContext = new AudioContext();
+  try {
+    const decoded = await audioContext.decodeAudioData(audioArrayBuffer.slice(0));
+    return decoded;
+  } finally {
+    audioContext.close();
+  }
+}
+
+function trimAudioBuffer(buffer: AudioBuffer, durationSeconds: number): AudioBuffer {
+  const maxSamples = Math.floor(buffer.sampleRate * durationSeconds);
+  const targetLength = Math.min(buffer.length, maxSamples);
+  if (targetLength >= buffer.length) return buffer;
+
+  const audioContext = new AudioContext();
+  try {
+    const trimmed = audioContext.createBuffer(
+      buffer.numberOfChannels,
+      targetLength,
+      buffer.sampleRate
+    );
+    for (let ch = 0; ch < buffer.numberOfChannels; ch++) {
+      const src = buffer.getChannelData(ch);
+      trimmed.copyToChannel(src.subarray(0, targetLength), ch);
+    }
+    return trimmed;
+  } finally {
+    audioContext.close();
+  }
+}
+
 export async function imagesToMp4(
   imageFiles: File[],
   fps: number,
+  quality: number = 50,
+  audioFile?: File,
+  resolution?: string,
+  aspectMode: "match" | "contain" | "cover" | "stretch" = "contain",
+  syncMode: "audio" | "video" = "video",
+  videoExtendMode: "last" | "black" = "last",
   onProgress?: ProgressCallback,
   abortSignal?: AbortSignal
 ): Promise<ArrayBuffer> {
@@ -62,9 +118,33 @@ export async function imagesToMp4(
   const originalHeight = firstBitmap.height;
   firstBitmap.close();
 
+  // 解像度を決定
+  let targetWidth = originalWidth;
+  let targetHeight = originalHeight;
+  
+  if (resolution && resolution !== "source" && resolutionPresets[resolution]) {
+    targetWidth = resolutionPresets[resolution].width;
+    targetHeight = resolutionPresets[resolution].height;
+  }
+
+  // 入力比率に合わせる場合は、選択解像度を「最大枠」として縦横比を維持した実寸に落とす
+  if (aspectMode === "match" && resolution && resolution !== "source" && resolutionPresets[resolution]) {
+    const maxW = resolutionPresets[resolution].width;
+    const maxH = resolutionPresets[resolution].height;
+    const srcAspect = originalWidth / originalHeight;
+    const boxAspect = maxW / maxH;
+    if (srcAspect >= boxAspect) {
+      targetWidth = maxW;
+      targetHeight = Math.round(maxW / srcAspect);
+    } else {
+      targetHeight = maxH;
+      targetWidth = Math.round(maxH * srcAspect);
+    }
+  }
+
   const { width, height, scaled } = calculateScaledDimensions(
-    originalWidth,
-    originalHeight
+    targetWidth,
+    targetHeight
   );
 
   if (scaled) {
@@ -74,6 +154,20 @@ export async function imagesToMp4(
   }
 
   const frameDuration = 1 / fps;
+  const sourceVideoDurationSeconds = imageFiles.length * frameDuration;
+
+  const decodedAudio = audioFile ? await decodeAudioFile(audioFile) : null;
+  const audioDurationSeconds = decodedAudio?.duration ?? 0;
+
+  const finalVideoDurationSeconds =
+    syncMode === "audio" && audioDurationSeconds > 0
+      ? audioDurationSeconds
+      : sourceVideoDurationSeconds;
+
+  const targetFrameCount = Math.max(
+    1,
+    Math.round(finalVideoDurationSeconds / frameDuration)
+  );
   
   // キャンバス作成
   let canvas: OffscreenCanvas;
@@ -94,53 +188,83 @@ export async function imagesToMp4(
     target,
   });
 
-  // ビットレートを解像度に応じて調整（4K: ~50Mbps, 1080p: ~15Mbps）
-  const pixelCount = width * height;
-  const bitrate = Math.min(
-    50_000_000, // 最大50Mbps
-    Math.max(5_000_000, Math.floor(pixelCount * 6)) // 最低5Mbps
-  );
+  const clampedQuality = Math.max(1, Math.min(100, quality));
+  const bitrateQuality =
+    clampedQuality <= 20
+      ? QUALITY_VERY_LOW
+      : clampedQuality <= 40
+        ? QUALITY_LOW
+        : clampedQuality <= 60
+          ? QUALITY_MEDIUM
+          : clampedQuality <= 80
+            ? QUALITY_HIGH
+            : QUALITY_VERY_HIGH;
 
   const videoSource = new CanvasSource(canvas, {
     codec: "avc",
-    bitrate,
+    bitrate: bitrateQuality,
   });
 
   output.addVideoTrack(videoSource);
-  
+
+  let audioSource: AudioBufferSource | null = null;
+  if (decodedAudio) {
+    audioSource = new AudioBufferSource({
+      codec: "aac",
+      bitrate: 192_000,
+    });
+    output.addAudioTrack(audioSource);
+  }
+
   try {
     await output.start();
   } catch (e) {
     throw new Error(`Encoder initialization failed: ${(e as Error).message}`);
   }
 
-  let timestamp = 0;
-  const total = imageFiles.length;
+  // Audio優先で音声が短い場合は映像をカット
+  const framesToEncode =
+    syncMode === "audio" && audioDurationSeconds > 0
+      ? Math.min(imageFiles.length, targetFrameCount)
+      : imageFiles.length;
 
-  for (let i = 0; i < imageFiles.length; i++) {
+  let timestamp = 0;
+  const total = syncMode === "audio" && audioDurationSeconds > 0 ? targetFrameCount : imageFiles.length;
+
+  let lastFrameFile: File | null = null;
+
+  for (let i = 0; i < framesToEncode; i++) {
     if (abortSignal?.aborted) {
       throw new Error("Encoding cancelled");
     }
 
     let bitmap: ImageBitmap;
+    const file = imageFiles[i];
+    lastFrameFile = file;
     try {
-      bitmap = await createImageBitmap(imageFiles[i]);
+      bitmap = await createImageBitmap(file);
     } catch (e) {
       throw new Error(
-        `Failed to load image ${i + 1}/${total} (${imageFiles[i].name}): ${(e as Error).message}`
+        `Failed to load image ${i + 1}/${framesToEncode} (${file.name}): ${(e as Error).message}`
       );
     }
 
     ctx.clearRect(0, 0, width, height);
 
-    // アスペクト比を維持してセンタリング
-    const scale = Math.min(width / bitmap.width, height / bitmap.height);
-    const scaledWidth = bitmap.width * scale;
-    const scaledHeight = bitmap.height * scale;
-    const x = (width - scaledWidth) / 2;
-    const y = (height - scaledHeight) / 2;
+    if (aspectMode === "stretch") {
+      ctx.drawImage(bitmap, 0, 0, width, height);
+    } else {
+      const scale =
+        aspectMode === "cover"
+          ? Math.max(width / bitmap.width, height / bitmap.height)
+          : Math.min(width / bitmap.width, height / bitmap.height);
 
-    ctx.drawImage(bitmap, x, y, scaledWidth, scaledHeight);
+      const scaledWidth = bitmap.width * scale;
+      const scaledHeight = bitmap.height * scale;
+      const x = (width - scaledWidth) / 2;
+      const y = (height - scaledHeight) / 2;
+      ctx.drawImage(bitmap, x, y, scaledWidth, scaledHeight);
+    }
     bitmap.close();
 
     try {
@@ -158,6 +282,66 @@ export async function imagesToMp4(
     if ((i + 1) % BATCH_SIZE === 0) {
       await new Promise((resolve) => setTimeout(resolve, 0));
     }
+  }
+
+  // Audio優先で音声が長い場合は映像を延長（最後保持 or 黒）
+  if (syncMode === "audio" && audioDurationSeconds > sourceVideoDurationSeconds) {
+    const extraFrames = total - framesToEncode;
+    for (let j = 0; j < extraFrames; j++) {
+      if (abortSignal?.aborted) {
+        throw new Error("Encoding cancelled");
+      }
+
+      ctx.clearRect(0, 0, width, height);
+
+      if (videoExtendMode === "black") {
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, width, height);
+      }
+
+      if (videoExtendMode === "last" && lastFrameFile) {
+        let holdBitmap: ImageBitmap;
+        try {
+          holdBitmap = await createImageBitmap(lastFrameFile);
+        } catch (e) {
+          throw new Error(
+            `Failed to load last frame for extension: ${(e as Error).message}`
+          );
+        }
+
+        if (aspectMode === "stretch") {
+          ctx.drawImage(holdBitmap, 0, 0, width, height);
+        } else {
+          const scale =
+            aspectMode === "cover"
+              ? Math.max(width / holdBitmap.width, height / holdBitmap.height)
+              : Math.min(width / holdBitmap.width, height / holdBitmap.height);
+          const scaledWidth = holdBitmap.width * scale;
+          const scaledHeight = holdBitmap.height * scale;
+          const x = (width - scaledWidth) / 2;
+          const y = (height - scaledHeight) / 2;
+          ctx.drawImage(holdBitmap, x, y, scaledWidth, scaledHeight);
+        }
+        holdBitmap.close();
+      }
+
+      try {
+        await videoSource.add(timestamp, frameDuration);
+      } catch (e) {
+        throw new Error(
+          `Encoding extension frame ${framesToEncode + j + 1}/${total} failed: ${(e as Error).message}`
+        );
+      }
+
+      timestamp += frameDuration;
+      onProgress?.(framesToEncode + j + 1, total);
+    }
+  }
+
+  if (decodedAudio && audioSource) {
+    const audioToEncode =
+      syncMode === "video" ? trimAudioBuffer(decodedAudio, sourceVideoDurationSeconds) : decodedAudio;
+    await audioSource.add(audioToEncode);
   }
 
   try {

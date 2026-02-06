@@ -1,6 +1,14 @@
 {
   "title": "Image to MP4 Converter",
   "description": "Convert image sequence to MP4 video",
+  "audio": {
+    "title": "Upload Audio",
+    "dropzone": "Drag & drop audio file here, or click to select",
+    "supported": "Supported formats: MP3, WAV, M4A, OGG",
+    "selected": "Selected audio",
+    "remove": "Remove",
+    "duration": "Duration"
+  },
   "upload": {
     "title": "Upload Images",
     "dropzone": "Drag & drop images here, or click to select",
@@ -14,13 +22,44 @@
     "label": "Frame Rate",
     "unit": "fps"
   },
+  "resolution": {
+    "title": "Resolution Settings",
+    "label": "Output Resolution"
+  },
+  "quality": {
+    "title": "Quality Settings",
+    "label": "Encode Quality",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High",
+    "ultra": "Ultra"
+  },
+  "aspect": {
+    "title": "Fit Mode",
+    "label": "Aspect Handling",
+    "match": "Match source aspect (no bars)",
+    "contain": "Contain (letterbox/pillarbox)",
+    "cover": "Cover (crop overflow)",
+    "stretch": "Stretch (distort)"
+  },
+  "sync": {
+    "title": "Audio/Video Length",
+    "modeLabel": "Sync preference",
+    "audio": "Sync to audio (stretch/cut video)",
+    "video": "Sync to video (trim audio)",
+    "extendLabel": "If audio is longer",
+    "extendLast": "Hold last frame",
+    "extendBlack": "Fill with black"
+  },
   "generate": {
     "button": "Generate Video",
     "progress": "Generating...",
     "download": "Download MP4",
     "cancel": "Cancel",
     "processing": "Processing frame {current} of {total}",
-    "complete": "Complete!"
+    "remaining": "{time} remaining",
+    "complete": "Complete!",
+    "preview": "Preview"
   },
   "preview": {
     "title": "Preview",

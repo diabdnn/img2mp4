@@ -5,6 +5,13 @@ export type ImageFile = {
   name: string;
 };
 
+export type AudioFile = {
+  id: string;
+  file: File;
+  name: string;
+  duration?: number;
+};
+
 export type EncodingProgress = {
   current: number;
   total: number;
